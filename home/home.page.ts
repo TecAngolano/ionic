@@ -7,35 +7,51 @@ import { AlertController, ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  // n1:string='';
-  // n2:string='';
-  // res:number=0;
-  // constructor() {
-  // }
-  // somar(){
-  //   this.res=parseFloat(this.n1)+parseFloat(this.n2);
-  // }
-  radioSelecionada: string="";
-  constructor(public toastController: ToastController,public alertController: AlertController){
+  altura: number= 1.75;
+  radio:string="";
+  constructor(public alertController: AlertController){}
+
+  calc(){
+    if(this.radio == 'homem'){
+      return 72.7 * this.altura - 58;
+    }
+    return 62.1 * this.altura - 44.7;
   }
-  verificarRadio(){
-    this.exibirToast();
-    this.exibirAlerta();
-  }
-  async exibirToast(){
-    const toast = await this.toastController.create({
-      message: this.radioSelecionada,
-      duration: 2000,
-      color: "#fff",
-    });
-    toast.present();
-  }
-  async exibirAlerta(){
+  async mostraAlerta(){
     const alerta = await this.alertController.create({
-      header: "Vasco é o maior",
-      message: this.radioSelecionada,
-      buttons: ["Ok"]
-    });
-    alerta.present();
+      header: 'seu peso ideal é ' + Math.round(this.calc()) + 'Kg',
+      message: 'Lembrando que é so uma estimativa',
+      buttons: ['Ok']
+    })
+    alerta.present()
   }
+  btn(){
+    this.mostraAlerta()
+  }
+
+  // valor: string="";
+  // radioSelecionada:string='';
+  // result:number=0;
+  // constructor(public alertController: AlertController){}
+  // verificarRadio(){
+  //   this.calc()
+  //   this.exibirAlerta();
+  // }
+  // calc(){
+  //   if(this.radioSelecionada == "pix"){
+  //    return this.result = parseFloat(this.valor) - parseFloat(this.valor)*0.10
+  //   }else if(this.radioSelecionada == 'credito'){
+  //     return this.result = parseFloat(this.valor) + parseFloat(this.valor)*0.10
+  //   }
+  //   return this.result=parseFloat(this.valor)
+
+  // }
+  // async exibirAlerta(){
+  //   const alerta = await this.alertController.create({
+  //     header: 'valor final: ' + this.result,
+  //     message: 'Metodo de pagamento ' + this.radioSelecionada,
+  //     buttons: ["Ok"]
+  //   });
+  //   alerta.present()
+  // }
 }

@@ -1,28 +1,51 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Somar
+      Peso ideal
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
+    <ion-radio-group [(ngModel)]="radio">
+      <ion-item>
+        <ion-label>Homem</ion-label>
+        <ion-radio value="homem"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mulher</ion-label>
+        <ion-radio value="mulher"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Altura:</ion-label>
+        <ion-input [(ngModel)]="altura" placeholder="1.75"></ion-input>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-button (click)="btn()">Calcular</ion-button>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-list>
     <ion-radio-group [(ngModel)]="radioSelecionada">
-      <ion-list-header>Escolha uma opção</ion-list-header>
       <ion-item>
-        <ion-label>Opção 1</ion-label>
-        <ion-radio value="option1"></ion-radio>
+        <ion-label>Pix</ion-label>
+        <ion-radio value="pix"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Opção 2</ion-label>
-        <ion-radio value="option2"></ion-radio>
+        <ion-label>Debito</ion-label>
+        <ion-radio value="Debito"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Opção 3</ion-label>
-        <ion-radio value="option3"></ion-radio>
+        <ion-label>Credito</ion-label>
+        <ion-radio value="credito"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Valor:</ion-label>
+        <ion-input [(ngModel)]="valor" placeholder="Digite o valor da compra"></ion-input>
       </ion-item>
     </ion-radio-group>
   </ion-list>
   <ion-button (click)="verificarRadio()">Verificar seleção</ion-button>
-</ion-content>
+</ion-content> -->
